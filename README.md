@@ -1,2 +1,2 @@
-# eagleeye
-A mobile app that notifies government officials about infrastructure issues.
+# EagleEye
+- A mobile app that notifies government officials about infrastructure issues.

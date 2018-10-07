@@ -1,0 +1,16 @@
+{
+  "expo": {
+    "name": "Eagle Eye",
+    "slug": "eagleeye",
+    "icon": "./rsrc/logo72x72.png",
+    "sdkVersion": "27.0.0",
+    "orientation": "portrait",
+    "privacy": "public",
+    "ios": {
+     "bundleIdentifier": "com.shadowsych.eagleeye"
+    },
+    "android": {
+     "package": "com.shadowsych.eagleeye"
+    }
+  }
+}
