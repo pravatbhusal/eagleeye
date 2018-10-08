@@ -10,7 +10,7 @@ A mobile app that notifies government officials about infrastructure issues. The
 
 # Developers
 - Pravat Bhusal (React Native & MySQL Developer)
-- Michael Kasman (Web-Server & MySQL Developer)
+- Michael Kasman (Full-Stack & MySQL Developer)
 
 # Application Set-up
 ### 1. Web-Server
