@@ -16,10 +16,13 @@ A mobile app that notifies government officials about infrastructure issues. The
 - Inside the src/server folder, place all php files into your web-server
 - Open the App.js file in the root directory
 - Change the serverURL variable to your server's URL
-- Compile and Test using Expo (create-react-native-app)
-- Finished!
 
 ### 2. Database Configuration
 - Inside the src/server/db folder, export the database.sql file into your MySQL database
 - Inside the src/server/db folder, open the dbconnection.php file and configure the variables to your database credentials
+
+### 3. Test React Native App
+- Open a new terminal in this project's directory
+- Type "npm install" or if you have yarn use "yarn install"
+- Now run the Expo development server using "expo start"
 
