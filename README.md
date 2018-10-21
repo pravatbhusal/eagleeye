@@ -20,7 +20,7 @@ A mobile app that notifies government officials about infrastructure issues. The
 - Change the serverURL variable to your server's URL
 
 ### 2. Database Configuration
-- Inside the src/server/db folder, export the database.sql file into your MySQL database
+- Inside the src/server/db folder, export the eagleeye.sql file into your MySQL database
 - Inside the src/server/db folder, open the dbconnection.php file and configure the variables to your database credentials
 
 ### 3. Test React Native App
