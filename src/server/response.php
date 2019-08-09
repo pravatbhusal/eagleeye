@@ -1,20 +1,21 @@
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
-    <link rel="shortcut icon" href="ee_favicon.png">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>EagleEye - Response</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+  <link rel="shortcut icon" href="ee_favicon.png">
 
-  </head>
+  <title>EagleEye - Response</title>
 
-  <body>
-    <div class="container text text-center">
-      <?php
+</head>
+
+<body>
+  <div class="container text text-center">
+    <?php
       include_once("db/dbconnection.php");
 
       // grab the most recent response for this problem
@@ -29,6 +30,7 @@
               $otherInformation = $row["other_information"];
               $pictureData = $row["picture_data"];
 
+              // carousel of images
               echo '
       <h1 class="text-center">'.$problemTitle.'</h1>
       <div class="container">
@@ -68,46 +70,47 @@
           }
       }
       ?>
-    </div>
+  </div>
 
-    <div class="container">
-      <div>
-        <div class="form-group">
-          <textarea required class="form-control" id="replyText" rows="3" placeholder="Enter your reply here"></textarea>
-          <button class="btn btn-primary" onclick="sendReply()">Reply</button>
-        </div>
+  <div class="container">
+    <div>
+      <div class="form-group">
+        <textarea required class="form-control" id="replyText" rows="3" placeholder="Enter your reply here"></textarea>
+        <button class="btn btn-primary" onclick="sendReply()">Reply</button>
       </div>
     </div>
+  </div>
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
-    <script>
-      function sendReply() {
-        // client variables
-        var replyText = document.getElementById("replyText").value;
-        var urlParams = new URLSearchParams(window.location.search);
-        var problemID = urlParams.get("id");
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+  <script>
+    function sendReply() {
+      // client variables
+      var replyText = document.getElementById("replyText").value;
+      var urlParams = new URLSearchParams(window.location.search);
+      var problemID = urlParams.get("id");
 
-        // open the HTTP Request
-        var http = new XMLHttpRequest();
-        var replyURL = '../web/reply.php';
-        var params = 'reply=' + replyText + "&problemID=" + problemID;
-        http.open('POST', replyURL, true);
+      // open the HTTP Request
+      var http = new XMLHttpRequest();
+      var replyURL = '../web/reply.php';
+      var params = 'reply=' + replyText + "&problemID=" + problemID;
+      http.open('POST', replyURL, true);
 
-        // set-up the HTTP Request
-        http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-        http.onreadystatechange = function() {
-          if(http.readyState == 4 && http.status == 200) {
-            alert("Reply was successfully sent to the citizens!");
-          }
+      // set-up the HTTP Request
+      http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+      http.onreadystatechange = function() {
+        if (http.readyState == 4 && http.status == 200) {
+          alert("Reply was successfully sent to the citizens!");
         }
-
-        // send the HTTP Request
-        http.send(params);
       }
-    </script>
-  </body>
+
+      // send the HTTP Request
+      http.send(params);
+    }
+  </script>
+</body>
+
 </html>
