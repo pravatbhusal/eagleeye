@@ -1,8 +1,10 @@
-# Apache Web-Server
-This folder contains the files for the Apache (PHP) Web-server. It also contains the front-end for
-the Eagle Eye government officials webpage to login and reply to any problems that are happening
-around the city.
+# Government Website and Web-server
+This folder contains the files for the government website and server-side scripts.
+
+The mobile folder contains the PHP scripts that the EagleEye React Native application fetches from.  
+The web folder contains the PHP scripts that the EagleEye website fetches from.
+
+To run the web-server, place these files inside an Apache webs-server. You can access the website by opening the web-server in a web-browser.
 
 # Contributors
-The web-server was primarily programmed by Michael Kasman, and some of the PHP server scripts
-were also created by Pravat Bhusal.
+The front-end was programmed by Michael Kasman, and the server-side was programmed by Pravat Bhusal.
