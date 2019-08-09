@@ -7,7 +7,6 @@
   $link = mysqli_connect($host, $sqluser, $sqlpassword, $dbusername);
 
   // if we do have an error connecting to the database, then stop the server
-  if(mysqli_connect_error()) {
-    die("There was an error connecting to the database...");
+  if (mysqli_connect_error()) {
+      die("There was an error connecting to the database...");
   }
-?>

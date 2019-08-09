@@ -22,14 +22,14 @@
       $id = $_GET["id"];
       $query = "SELECT * FROM problems WHERE id='$id'";
 
-      if($result = mysqli_query($link, $query)) {
-        while($row = mysqli_fetch_array($result)) {
-          $problemTitle = $row["problem_title"];
-          $briefExplanation = $row["brief_explanation"];
-          $otherInformation = $row["other_information"];
-          $pictureData = $row["picture_data"];
+      if ($result = mysqli_query($link, $query)) {
+          while ($row = mysqli_fetch_array($result)) {
+              $problemTitle = $row["problem_title"];
+              $briefExplanation = $row["brief_explanation"];
+              $otherInformation = $row["other_information"];
+              $pictureData = $row["picture_data"];
 
-      echo '
+              echo '
       <h1 class="text-center">'.$problemTitle.'</h1>
       <div class="container">
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -65,8 +65,8 @@
         <p>'.$otherInformation.'</p>
       </div>
       ';
-    }
-  }
+          }
+      }
       ?>
     </div>
 

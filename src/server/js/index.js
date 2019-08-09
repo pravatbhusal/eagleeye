@@ -12,8 +12,8 @@ function login() {
   // set-up the HTTP Request
   http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
   http.onreadystatechange = function() {
-    if(http.readyState == 4 && http.status == 200) {
-      if(http.responseText == "Email or Password was incorrect, failed to login.") {
+    if (http.readyState == 4 && http.status == 200) {
+      if (http.responseText == "Email or Password was incorrect, failed to login.") {
         alert(http.responseText);
       } else {
         // parse the JSON data from the HTTP Request
@@ -24,7 +24,7 @@ function login() {
         setCookie("cityEmail", response.cityEmail);
         setCookie("cityName", response.cityName);
         setCookie("state", response.state)
-        
+
         // load the dashboard.html
         window.location = "dashboard.php";
       }
@@ -37,8 +37,8 @@ function login() {
 
 // set a cookie
 function setCookie(cname, cvalue, exdays) {
-    var d = new Date();
-    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
-    var expires = "expires="+d.toUTCString();
-    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+  var d = new Date();
+  d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+  var expires = "expires=" + d.toUTCString();
+  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
 }

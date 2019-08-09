@@ -34,17 +34,17 @@
         $query = "SELECT * FROM problems WHERE problem_title LIKE '%".$search."%' AND city='$cityName' ORDER BY id DESC";
 
         // query through the problems column
-        if($result = mysqli_query($link, $query)) {
-        	while($row = mysqli_fetch_array($result)) {
-            $id = $row["id"];
-        		$problemTitle = $row["problem_title"];
-            $briefExplanation = $row["brief_explanation"];
-            $location = json_decode($row["location"]);
-            $latitude = $location->latitude;
-            $longitude = $location->longitude;
+        if ($result = mysqli_query($link, $query)) {
+            while ($row = mysqli_fetch_array($result)) {
+                $id = $row["id"];
+                $problemTitle = $row["problem_title"];
+                $briefExplanation = $row["brief_explanation"];
+                $location = json_decode($row["location"]);
+                $latitude = $location->latitude;
+                $longitude = $location->longitude;
 
-            // problem jumbotron object
-            echo '
+                // problem jumbotron object
+                echo '
               <div class="jumbotron">
                 <p>Ticket #'.$id.'<p>
                 <h1 class="display-4">'.$problemTitle.'</h1>
@@ -54,7 +54,7 @@
                 <a class="btn btn-primary btn-lg" href="response.php/?id='.$id.'" role="button">Respond</a>
               </div>
             ';
-        	}
+            }
         }
       ?>
   </div>
